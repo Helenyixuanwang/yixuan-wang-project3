@@ -1,0 +1,243 @@
+.sudoku-grid-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.sudoku-grid {
+  display: grid;
+  background-color: #2c3e50;
+  border: 4px solid #2c3e50;
+  border-radius: 4px;
+  width: fit-content;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  gap: 0;
+}
+
+/* 9x9 Grid */
+.grid-9x9 {
+  grid-template-columns: repeat(9, 55px);
+  grid-template-rows: repeat(9, 55px);
+}
+
+/* 6x6 Grid */
+.grid-6x6 {
+  grid-template-columns: repeat(6, 65px);
+  grid-template-rows: repeat(6, 65px);
+}
+
+/* Cell wrapper for borders */
+.sudoku-grid > div {
+  border: 1px solid #95a5a6;
+  background-color: white;
+}
+
+/* Thick borders for sub-grids */
+.border-right-thick {
+  border-right: 4px solid #2c3e50 !important;
+}
+
+.border-bottom-thick {
+  border-bottom: 4px solid #2c3e50 !important;
+}
+
+/* Top and left borders for first row/column */
+.sudoku-grid > div:nth-child(-n+9) {
+  /* First row gets no special treatment - outer border handles it */
+}
+
+.congratulations {
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+  animation: celebrate 0.5s ease;
+}
+
+@keyframes celebrate {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .grid-9x9 {
+    grid-template-columns: repeat(9, 38px);
+    grid-template-rows: repeat(9, 38px);
+  }
+
+  .grid-6x6 {
+    grid-template-columns: repeat(6, 52px);
+    grid-template-rows: repeat(6, 52px);
+  }
+
+  .cell-input {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .grid-9x9 {
+    grid-template-columns: repeat(9, 32px);
+    grid-template-rows: repeat(9, 32px);
+  }
+
+  .grid-6x6 {
+    grid-template-columns: repeat(6, 46px);
+    grid-template-rows: repeat(6, 46px);
+  }
+
+  .cell-input {
+    font-size: 1rem;
+  }
+}
+
+/* Overlay background - darkens the screen */
+.congratulations-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Congratulations card - the popup message */
+/* Overlay background - darkens the screen */
+.congratulations-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);  /* Lighter background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Congratulations card - frosted glass effect */
+.congratulations {
+  background: rgba(255, 255, 255, 0.25);  /* More transparent */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 3rem 4rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);  /* Lighter shadow */
+  animation: popIn 0.5s ease;
+  position: relative;
+  max-width: 500px;
+}
+
+.congratulations-content {
+  position: relative;
+  z-index: 1;
+}
+
+.congratulations h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);  /* Stronger shadow for readability */
+}
+
+.congratulations p {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.congratulations-emoji {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: bounce 1s infinite;
+}
+
+/* Confetti emojis floating around */
+.congratulations::before,
+.congratulations::after {
+  content: '🎊';
+  position: absolute;
+  font-size: 3rem;
+  animation: float 3s infinite;
+}
+
+.congratulations::before {
+  top: -20px;
+  left: -20px;
+  animation-delay: 0.5s;
+}
+
+.congratulations::after {
+  bottom: -20px;
+  right: -20px;
+  animation-delay: 1s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  0% { 
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% { 
+    transform: translateY(-30px) rotate(180deg);
+    opacity: 0.7;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .congratulations {
+    padding: 2rem 2.5rem;
+    max-width: 90%;
+  }
+
+  .congratulations h2 {
+    font-size: 2rem;
+  }
+
+  .congratulations p {
+    font-size: 1rem;
+  }
+}
