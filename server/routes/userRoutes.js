@@ -56,8 +56,10 @@ router.post('/login', async (req, res) => {
     // Set cookie
     res.cookie('username', username, {
       httpOnly: true,
-      maxAge: 24 * 60 * 60 * 1000 // 1 day
-    });
+      maxAge: 24 * 60 * 60 * 1000,
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      secure: process.env.NODE_ENV === 'production'
+  }); 
     res.json({ username });
   } catch (err) {
     res.status(500).json({ error: 'Login failed' });
