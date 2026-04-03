@@ -1,0 +1,13 @@
+{
+  "name": "yixuan-wang-project3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd frontend && npm install --include=dev && npm run build",
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev"
+  },
+  "author": "Helen Wang",
+  "license": "ISC"
+}
