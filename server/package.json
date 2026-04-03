@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
+"scripts": {
   "start": "node index.js",
   "dev": "nodemon index.js",
-  "build": "cd ../client && npm install && npm run build"
+  "build": "cd ../client && npm install --include=dev && npm run build"
 },
   "keywords": [],
   "author": "",
