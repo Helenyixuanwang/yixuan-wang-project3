@@ -36,6 +36,7 @@
   gap: 2rem;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 .nav-links a {
@@ -53,6 +54,31 @@
 .nav-links a.active {
   background-color: #3498db;
   font-weight: 600;
+}
+
+.nav-username {
+  color: #f39c12;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(243, 156, 18, 0.15);
+  border-radius: 4px;
+}
+
+.btn-logout {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+  background-color: #c0392b;
 }
 
 /* Mobile responsive */

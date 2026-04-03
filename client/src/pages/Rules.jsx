@@ -2,7 +2,7 @@ function Rules() {
   return (
     <div className="page-container">
       <h2>How to Play Sudoku</h2>
-      
+
       <section className="rules-section">
         <h3>Game Objective</h3>
         <p>Fill the grid so that each row, column, and sub-grid contains all numbers without repeating.</p>
@@ -19,12 +19,10 @@ function Rules() {
       </section>
 
       <section className="rules-section">
-        <h3>For 6x6 Sudoku:</h3>
+        <h3>Difficulty Levels:</h3>
         <ul>
-          <li>Fill with numbers 1-6</li>
-          <li>Each row must contain 1-6 exactly once</li>
-          <li>Each column must contain 1-6 exactly once</li>
-          <li>Each 2×3 sub-grid must contain 1-6 exactly once</li>
+          <li><strong>Easy</strong> — 30 cells removed, more numbers visible</li>
+          <li><strong>Normal</strong> — 50 cells removed, fewer hints</li>
         </ul>
       </section>
 
