@@ -3,7 +3,7 @@
 A full stack Sudoku web application built with React, Express, and MongoDB.
 
 ## Live Demo
-[Deployed App](your-render-link-here) <!-- Add after deployment -->
+[Deployed App](https://yixuan-wang-project3-server.onrender.com)
 
 ## Features
 - 🎮 Create and play Sudoku games (Easy and Normal difficulty)
